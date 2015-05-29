@@ -1,6 +1,6 @@
-class CreateAnswersTakers < ActiveRecord::Migration
+class CreateAnswerTakers < ActiveRecord::Migration
   def change
-    create_table :answers_takers do |t|
+    create_table :answer_takers do |t|
       t.belongs_to :answer, null: false
       t.belongs_to :taker, null: false
 
