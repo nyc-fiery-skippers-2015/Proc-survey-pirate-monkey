@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
-  has_secure_password
-  # Remember to create a migration!
+  has_many :surveys, foreign_key: 'creator_id'
+  has_many :answers_takers
+  has_many :answers, through: :answers_takers
+  has_many :takers_surveys
+  has_many :surveys, through: :takers_surveys
 end

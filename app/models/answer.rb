@@ -1,3 +1,7 @@
 class Answer < ActiveRecord::Base
-  # Remember to create a migration!
+ belongs_to :question
+ has_many :answers_takers
+ has_many :takers, through: :answers_takers, source: :user
+
+
 end
