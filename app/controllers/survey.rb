@@ -3,6 +3,12 @@ get '/survey/:id' do
   erb :"survey/show", locals: {survey: survey}
 end
 
+get '/surveys' do
+  surveys = Survey.all
+  erb :'surveys/index', locals: {surveys: surveys}
+end
+
+
 get '/surveys/new' do
   erb :'surveys/new'
 end
@@ -25,3 +31,19 @@ post '/surveys/:id/questions' do
   return [500, "Something went wrong"] unless question.save
   redirect "/questions/#{question.id}/answers"
 end
+
+delete '/surveys/:id' do
+  current_survey = Survey.find_by(id: params[:id])
+  return [500, 'Error'] unless current_survey
+  current_survey.destroy
+  redirect '/surveys'
+end
+
+put '/surveys/:id' do
+  current_survey = Survey.find_by(id: params[:id])
+  current_survey.closed = true
+  redirect '/surveys'
+end
+
+
+
