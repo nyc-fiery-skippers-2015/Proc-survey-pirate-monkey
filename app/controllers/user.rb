@@ -19,3 +19,15 @@ delete '/users' do
   current_user.destroy
   redirect '/login'
 end
+
+get '/users/:id/surveys/created' do
+  user = User.find_by(id: params[:id])
+  created_surveys = Survey.where(:creator_id = user.id)
+  erb :'surveys/created', locals: {surveys: created_surveys}
+end
+
+get '/users/:id/surveys/taken' do
+  user = User.find_by(id: params[:id])
+  taken_surveys = TakerSurvey.where(:taker_id = user.id)
+  erb :'surveys/taken', locals: {surveys: taken_surveys}
+end
