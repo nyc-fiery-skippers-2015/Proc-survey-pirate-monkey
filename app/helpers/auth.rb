@@ -14,3 +14,6 @@ def is_authenticated?
   return !!session[:user_id]
 end
 
+def currently_logged_in
+  User.find_by(id: session[:user_id])
+end
