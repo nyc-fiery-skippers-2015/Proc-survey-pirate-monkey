@@ -1,4 +1,4 @@
-get 'questions/:id/answers' do
+get '/questions/:id/answers' do
   current_question = Question.find_by(id: params[:id])
   erb :'answers/show', locals: {question: current_question}
 end
