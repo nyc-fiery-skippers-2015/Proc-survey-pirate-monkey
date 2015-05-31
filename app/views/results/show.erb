@@ -1,4 +1,7 @@
 <%survey.questions.each do |question|%>
+  <%= question.text%>
   <%question.answers.each do |answer| %>
-
+    <%= answer.text%>
+    <%answer.takers.length%>
+  <%end%>
 <%end%>
