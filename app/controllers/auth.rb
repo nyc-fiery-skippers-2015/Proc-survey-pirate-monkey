@@ -1,3 +1,7 @@
+get '/' do
+
+end
+
 get '/login' do
   if is_authenticated?
     redirect '/logout'
