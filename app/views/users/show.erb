@@ -1,14 +1,15 @@
-<div class = 'name'><%=user.name%></div>
+<div class="center">
+  <div class = 'name'><h2><%=user.name%>'s Surveys</h2></div>
 
-<div class="created-surveys">
-  <a href="/users/<%=user.id%>/surveys/created" class="btn btn-default btn-md">Created Surveys</a>
+  <div class="created-surveys">
+    <a href="/users/<%=user.id%>/surveys/created" class="btn btn-primary btn-md">Created Surveys</a>
+  </div>
+  <br>
+  <div class="taken-surveys">
+    <a href="/users/<%=user.id%>/surveys/taken" class="btn btn-primary btn-md">Surveys Taken</a>
+  </div>
+  <br>
+  <div class="new-survey">
+    <a href="/surveys/new" class="btn btn-primary btn-md">Create a New Survey</a>
+  </div>
 </div>
-<br>
-<div class="taken-surveys">
-  <a href="/users/<%=user.id%>/surveys/taken" class="btn btn-default btn-md">Surveys Taken</a>
-</div>
-<br>
-<div class="new-survey">
-  <a href="/surveys/new" class="btn btn-default btn-md">Create a New Survey</a>
-</div>
-
