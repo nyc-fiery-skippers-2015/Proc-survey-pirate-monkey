@@ -1,4 +1,6 @@
 <form action = '/questions/<%=question.id%>/answers' method = 'post' >
-  <input type = 'text' name = 'text' placeholder = '' />
+  <input type = 'text' name = 'text' placeholder = 'Response' />
   <input type = 'submit' value = 'Add Option' />
 </form>
+
+<a href="surveys/<%=question.survey.id%>/questions"> Create Next Question </a>
