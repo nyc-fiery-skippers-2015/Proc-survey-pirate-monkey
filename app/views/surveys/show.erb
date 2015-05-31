@@ -1,4 +1,4 @@
-<%surveys.questions.each do |question|%>
+<%survey.questions.each do |question|%>
   <%=question.text%>
     <form class = 'survey-form' action ='questions/<%=question.id%>/answers'  method = 'post'>
       <input type = 'hidden' name = '_method' value = 'put'/>
