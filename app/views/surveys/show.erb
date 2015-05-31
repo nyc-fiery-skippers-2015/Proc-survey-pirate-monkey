@@ -1,5 +1,11 @@
-<div class="survey-show">
-  <% surveys.each do |survey| %>
-    <a href="/surveys/<%= survey.id %>"><%= survey.title %></a>
-  <% end %>
-</div>
+<%surveys.questions.each do |question|%>
+  <%=question.text%>
+    <form action ='questions/<%=question.id%>/answers'  method = 'post'>
+      <input type = 'hidden' name = '_method' value = 'put'/>
+      <%question.answers.each do |answer|%>
+        <div><input type= 'radio' name = 'answer' value = <%=answer.id%>/> <%= answer.text%></div>
+    <%end%>
+  </form>
+<%end%>
+
+<form class = submit-form> <input type ='submit' value = 'Submit Survey'/></form>
