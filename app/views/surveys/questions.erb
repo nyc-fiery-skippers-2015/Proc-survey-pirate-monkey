@@ -1,0 +1,7 @@
+<div>
+  <header>Questions</header>
+  <form action="/surveys/<%= current_survey.id %>/questions" method="post">
+      <input type ="text" name="question[text]" placeholder="Question"/>
+      <input type="submit" value="Submit"/>
+  </form>
+</div>
