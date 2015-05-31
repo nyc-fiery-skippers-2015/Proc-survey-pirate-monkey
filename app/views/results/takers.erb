@@ -1,0 +1,3 @@
+<% survey.takers.each do |taker|%>
+  <a href="/surveys/<%=survey.id%>/<%=taker.id%>"><%=taker.name%></a>
+<%end%>
