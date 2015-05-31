@@ -24,7 +24,7 @@ end
 
 get '/users/:id/surveys/created' do
   user = User.find_by(id: params[:id])
-  created_surveys = Survey.where(:creator_id == user.id)
+  created_surveys = Survey.where(creator_id: user.id)
   erb :'surveys/show', locals: {surveys: created_surveys}
 end
 
