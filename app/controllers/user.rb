@@ -25,11 +25,11 @@ end
 get '/users/:id/surveys/created' do
   user = User.find_by(id: params[:id])
   created_surveys = Survey.where(creator_id: user.id)
-  erb :'surveys/show', locals: {surveys: created_surveys}
+  erb :'surveys/index', locals: {surveys: created_surveys}
 end
 
 get '/users/:id/surveys/taken' do
   user = User.find_by(id: params[:id])
   taken_surveys = user.surveys
-  erb :'surveys/show', locals: {surveys: taken_surveys}
+  erb :'surveys/index', locals: {surveys: taken_surveys}
 end
