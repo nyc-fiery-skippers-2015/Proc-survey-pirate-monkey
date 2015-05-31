@@ -30,6 +30,6 @@ end
 
 get '/users/:id/surveys/taken' do
   user = User.find_by(id: params[:id])
-  taken_surveys = TakerSurvey.where(:taker_id == user.id)
-  erb :'surveys/taken', locals: {surveys: taken_surveys}
+  taken_surveys = user.surveys
+  erb :'surveys/show', locals: {surveys: taken_surveys}
 end
