@@ -1,10 +1,22 @@
 get '/login' do
-  erb :'users/login'
+  if is_authenticated?
+    redirect '/logout'
+  end
+  erb :'auth/login'
 end
 
-post '/login' do
+get '/signup' do
+  erb :'auth/signup'
+end
+
+get '/logout' do
+  erb :'auth/logout'
+end
+
+post '/session' do
   user = User.find_by(email: params[:user][:email])
-  if user.authenticate(params[:user][:password_hash])
+  return [500, "login error"] unless user
+  if user.authenticate(params[:user][:password])
     session[:user_id] = user.id
     redirect "/users/#{user.id}"
   else
@@ -12,10 +24,7 @@ post '/login' do
   end
 end
 
-get '/logout' do
-
-end
-
-get '/signup' do
-
+delete '/session' do
+  session[:user_id] = nil
+  redirect "/login"
 end
