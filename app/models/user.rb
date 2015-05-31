@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
 has_many :taker_surveys, foreign_key: 'taker_id'
 has_many :surveys, through: :taker_surveys
 

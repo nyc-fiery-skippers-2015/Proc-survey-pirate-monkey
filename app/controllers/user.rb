@@ -2,7 +2,7 @@ get '/users/new' do
   erb :'users/new'
 end
 
-get 'users/:id' do
+get '/users/:id' do
   current_user = User.find_by(id: params[:id])
   erb :'users/show', locals: {user: current_user}
 end
