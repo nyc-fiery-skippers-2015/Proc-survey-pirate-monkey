@@ -1,6 +1,6 @@
 <%surveys.questions.each do |question|%>
   <%=question.text%>
-    <form action ='questions/<%=question.id%>/answers'  method = 'post'>
+    <form class = 'survey-form' action ='questions/<%=question.id%>/answers'  method = 'post'>
       <input type = 'hidden' name = '_method' value = 'put'/>
       <%question.answers.each do |answer|%>
         <div><input type= 'radio' name = 'answer' value = <%=answer.id%>/> <%= answer.text%></div>
@@ -8,4 +8,4 @@
   </form>
 <%end%>
 
-<form class = submit-form> <input type ='submit' value = 'Submit Survey'/></form>
+<form class = 'submit-form'> <input type ='submit' value = 'Submit Survey'/></form>
