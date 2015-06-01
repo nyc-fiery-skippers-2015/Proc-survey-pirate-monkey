@@ -1,5 +1,6 @@
 get '/' do
-  erb :'home'
+  all_surveys = Survey.all
+  erb :'home', locals: {surveys: all_surveys}
 end
 
 get '/login' do
