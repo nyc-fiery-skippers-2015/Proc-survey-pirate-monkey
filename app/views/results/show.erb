@@ -1,9 +1,10 @@
 <div class="jumbotron">
+  <h1>Results</h1>
   <%survey.questions.each do |question|%>
-   <div><%= question.text%></div>
+   <div><h3><%= question.text%></h3></div>
     <%question.answers.each do |answer| %>
-      <div><%= answer.text%>
-      <%=answer.takers.length%></div>
+      <div><h4><%= answer.text%>
+      <%=answer.takers.length%></h4></div>
     <%end%>
   <%end%>
 </div>
