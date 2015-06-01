@@ -6,17 +6,17 @@
     </div>
     <div class="nav navbar-nav">
       <li>
-        <% if current_user %>
-          <a href="/users/<%= current_user.id %>">Profile</a>
+        <% if currently_logged_in %>
+          <a href="/users/<%= currently_logged_in.id %>">Profile</a>
         <% end %>
       </li>
       <li>
-        <% if current_user %>
+        <% if currently_logged_in %>
           <a href="/surveys/new">New Survey</a>
         <% end %>
       </li>
       <li>
-        <% if current_user %>
+        <% if currently_logged_in %>
           <a href="/logout">Logout</a>
         <% else %>
           <a href="/login">Login</a>

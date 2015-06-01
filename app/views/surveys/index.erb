@@ -1,7 +1,7 @@
 <div class="center">
-  <h2><%= current_user.name %>'s Surveys</h2>
+  <h2><%= currently_logged_in.name %>'s Surveys</h2>
   <%surveys.each do |survey|%>
-    <div><h3><a href="/surveys/<%=survey.id%>"><%= survey.title%></a></h3></div>
+    <div id="results"><h3><a href="/surveys/<%=survey.id%>"><%= survey.title%></a></h3><a href="/surveys/<%=survey.id%>/results" class="btn btn-primary btn-md">Results</a></div>
   <%end%>
 </div>
 
