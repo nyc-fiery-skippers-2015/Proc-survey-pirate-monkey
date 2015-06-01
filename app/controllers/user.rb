@@ -33,13 +33,13 @@ get '/users/:id/surveys/created' do
 end
 
 get '/users/:id/surveys/taken' do
+  current_user = User.find_by(id: params[:id])
   owner
   require_logged_in
-  user = User.find_by(id: params[:id])
-  taken_surveys = user.surveys
+  taken_surveys = current_user.surveys
   erb :'surveys/index', locals: {surveys: taken_surveys}
 end
 
 def owner
-  redirect '/login' unless session[:user_id] == params[:id]
+  redirect '/login' unless session[:user_id] == current_user.id
 end
