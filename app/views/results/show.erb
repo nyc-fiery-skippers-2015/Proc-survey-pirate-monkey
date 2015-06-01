@@ -1,7 +1,7 @@
 <%survey.questions.each do |question|%>
-  <%= question.text%>
+ <div><%= question.text%></div>
   <%question.answers.each do |answer| %>
-    <%= answer.text%>
-    <%answer.takers.length%>
+    <div><%= answer.text%>
+    <%=answer.takers.length%></div>
   <%end%>
 <%end%>
