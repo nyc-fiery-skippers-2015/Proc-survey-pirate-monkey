@@ -1,7 +1,21 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
-
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $('.submit-form').on('submit',submitForms);
 });
+
+
+var submitForms = function(event) {
+  event.preventDefault();
+  $('.survey-form').each(function(){
+    self = $(this)
+    $.ajax({
+       method: 'put',
+       url: this.action,
+       data: self.serialize()
+    }).done(function(response){
+      console.log(response);
+    }).fail(function(error){
+      console.log(error);
+   });
+ });
+  window.location.replace('/surveys');
+};
