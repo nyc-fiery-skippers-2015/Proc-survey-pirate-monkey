@@ -1,3 +1,7 @@
-<%surveys.each do |survey|%>
-  <div><a href="/surveys/<%=survey.id%>"><%= survey.title%></a></div>
-<%end%>
+<div class="center">
+  <h2><%= current_user.name %>'s Surveys</h2>
+  <%surveys.each do |survey|%>
+    <div><h3><a href="/surveys/<%=survey.id%>"><%= survey.title%></a></h3></div>
+  <%end%>
+</div>
+

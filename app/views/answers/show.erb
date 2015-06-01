@@ -1,6 +1,11 @@
-<form action = '/questions/<%=question.id%>/answers' method = 'post' >
-  <input type = 'text' name = 'text' placeholder = 'Response' />
-  <input type = 'submit' value = 'Add Option' />
-</form>
-
-<a href="/surveys/<%=question.survey.id%>/questions"> Create Next Question </a>
+<div class="center">
+  <h3>Add your possible answers</h3>
+  <form action = '/questions/<%=question.id%>/answers' method = 'post' >
+    <input type = 'text' name = 'text' placeholder = 'Response' />
+    <input type = 'submit' value = 'Add Option' />
+  </form>
+  <br>
+  <a href="/surveys/<%=question.survey.id%>/questions" class="btn btn-primary btn-md">Create Next Question</a>
+  <h4>or</h4>
+  <a href="/surveys/<%= question.survey.id %>" class="btn btn-primary btn-md">Finish Your Survey</a>
+</div>
