@@ -1,4 +1,5 @@
 get '/surveys/:id' do
+  require_logged_in
   survey = Survey.find_by(id: params[:id])
   erb :"surveys/show", locals: {survey: survey}
 end
@@ -10,6 +11,7 @@ end
 
 
 get '/surveys/new' do
+  require_logged_in
   erb :'surveys/new'
 end
 
@@ -21,6 +23,8 @@ post '/surveys'  do
 end
 
 get '/surveys/:id/questions' do
+  require_logged_in
+  redirect '/login' unless current_survey.creator_id == session[:user_id]
   current_survey = Survey.find_by(id: params[:id])
   erb :'surveys/questions', locals:{survey: current_survey}
 end

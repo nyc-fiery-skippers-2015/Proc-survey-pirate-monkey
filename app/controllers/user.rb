@@ -3,6 +3,8 @@ get '/users/new' do
 end
 
 get '/users/:id' do
+  owner
+  require_logged_in
   current_user = User.find_by(id: params[:id])
   return [500, "No user with that id"] unless current_user
   erb :'users/show', locals: {user: current_user}
@@ -23,13 +25,21 @@ delete '/users' do
 end
 
 get '/users/:id/surveys/created' do
+  owner
+  require_logged_in
   user = User.find_by(id: params[:id])
   created_surveys = Survey.where(creator_id: user.id)
   erb :'surveys/index', locals: {surveys: created_surveys}
 end
 
 get '/users/:id/surveys/taken' do
+  owner
+  require_logged_in
   user = User.find_by(id: params[:id])
   taken_surveys = user.surveys
   erb :'surveys/index', locals: {surveys: taken_surveys}
+end
+
+def owner
+  redirect '/login' unless session[:user_id] == params[:id]
 end

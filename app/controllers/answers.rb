@@ -1,4 +1,6 @@
 get '/questions/:id/answers' do
+  require_logged_in
+  redirect '/login' unless current_question.survey.creator_id == session[:user_id]
   current_question = Question.find_by(id: params[:id])
   erb :'answers/show', locals: {question: current_question}
 end
