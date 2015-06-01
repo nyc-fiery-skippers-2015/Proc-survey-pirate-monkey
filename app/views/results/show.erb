@@ -1,7 +1,9 @@
-<%survey.questions.each do |question|%>
- <div><%= question.text%></div>
-  <%question.answers.each do |answer| %>
-    <div><%= answer.text%>
-    <%=answer.takers.length%></div>
+<div class="jumbotron">
+  <%survey.questions.each do |question|%>
+   <div><%= question.text%></div>
+    <%question.answers.each do |answer| %>
+      <div><%= answer.text%>
+      <%=answer.takers.length%></div>
+    <%end%>
   <%end%>
-<%end%>
+</div>

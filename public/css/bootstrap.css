@@ -4396,7 +4396,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #f8f8f8;
+  background-color: #C1D3F7;
   border-color: #e7e7e7;
 }
 .navbar-default .navbar-brand {
@@ -6586,7 +6586,12 @@ h1#welcome {
   text-align: center;
 }
 
-.jumbotron p {
+
+.jumbotron {
   text-align: center;
+  background-color: #C1D3F7;
+}
+body {
+  background-image: url('/img/background.jpg');
 }
 /*# sourceMappingURL=bootstrap.css.map */
