@@ -17,5 +17,5 @@ var submitForms = function(event) {
       console.log(error);
    });
  });
-  window.location.replace('/surveys');
+ window.location.replace('/surveys');
 };

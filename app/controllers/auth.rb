@@ -1,5 +1,5 @@
 get '/' do
-  all_surveys = Survey.all
+  all_surveys = Survey.all # You usually want to limit your "all" type queries - this will have tons of data in the future when you are web-scale
   erb :'home', locals: {surveys: all_surveys}
 end
 
@@ -10,6 +10,7 @@ get '/login' do
   erb :'auth/login'
 end
 
+# This route should probably go on the users controller
 get '/signup' do
   erb :'auth/signup'
 end

@@ -42,5 +42,6 @@ get '/users/:id/surveys/taken' do
 end
 
 def owner
+  # this cannot return false
   redirect '/login' unless session[:user_id] == currently_logged_in.id
 end
