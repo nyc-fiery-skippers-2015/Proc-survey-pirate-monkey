@@ -3,3 +3,12 @@
   <p><a class="btn btn-primary btn-lg" href="/login" role="button" id="home">Login</a></p>
   <p><a class="btn btn-primary btn-lg" href="/signup" role="button" id="home">Sign Up</a></p>
 </div>
+<br>
+<div class="jumbotron">
+  <h2>Sign Up and Take Some Surveys!</h2>
+  <% surveys.each do |survey| %>
+    <div class="survey">
+      <a href="/surveys/<%= survey.id %>"><h3><%=survey.title%></h3></a>
+    </div>
+  <% end %>
+</div>

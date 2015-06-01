@@ -1,3 +1,4 @@
+require 'pry'
 get '/users/new' do
   erb :'auth/signup'
 end
@@ -33,13 +34,13 @@ get '/users/:id/surveys/created' do
 end
 
 get '/users/:id/surveys/taken' do
-  current_user = User.find_by(id: params[:id])
+  user = User.find_by(id: params[:id])
   owner
   require_logged_in
-  taken_surveys = current_user.surveys
-  erb :'surveys/index', locals: {surveys: taken_surveys}
+  taken_surveys = Survey.where(creator_id: user.answer_takers.first.answer.question.survey.creator_id)
+  erb :'surveys/taken', locals: {surveys: taken_surveys}
 end
 
 def owner
-  redirect '/login' unless session[:user_id] == current_user.id
+  redirect '/login' unless session[:user_id] == currently_logged_in.id
 end

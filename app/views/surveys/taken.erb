@@ -1,0 +1,6 @@
+<div class="jumbotron">
+  <h2><%= currently_logged_in.name %>'s Taken Surveys</h2>
+  <%surveys.each do |survey|%>
+    <div><h3><a href="/surveys/<%=survey.id%>"><%= survey.title%></a></h3></div>
+  <%end%>
+</div>
