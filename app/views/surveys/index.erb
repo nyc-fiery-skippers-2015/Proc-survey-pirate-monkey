@@ -1,7 +1,10 @@
 <div class="jumbotron">
   <h2><%= currently_logged_in.name %>'s Surveys</h2>
   <%surveys.each do |survey|%>
-    <div id="results"><h3><a href="/surveys/<%=survey.id%>"><%= survey.title%></a></h3><a href="/surveys/<%=survey.id%>/results" class="btn btn-primary btn-md">Results</a></div>
+    <div id="results"><h3><a href="/surveys/<%=survey.id%>"><%= survey.title%></a></h3>
+      <% if survey.creator_id == currently_logged_in.id %>
+        <a href="/surveys/<%=survey.id%>/results" class="btn btn-primary btn-md">Results</a></div>
+      <% end %>
   <%end%>
 </div>
 

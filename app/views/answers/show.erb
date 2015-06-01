@@ -2,7 +2,7 @@
   <h2>Add your possible answers</h2>
   <form action = '/questions/<%=question.id%>/answers' method = 'post' >
     <input type = 'text' name = 'text' placeholder = 'Response' />
-    <input type = 'submit' value = 'Add Option' />
+    <input type = 'submit' value = 'Add Answer' class="btn btn-primary btn-md"/>
   </form>
   <br>
   <a href="/surveys/<%=question.survey.id%>/questions" class="btn btn-primary btn-md">Create Next Question</a>
